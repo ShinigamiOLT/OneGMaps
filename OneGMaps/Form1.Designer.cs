@@ -30,7 +30,6 @@
         {
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.btnPoligono = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -41,7 +40,7 @@
             this.bntPozo = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,7 +72,7 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(961, 474);
+            this.gMapControl1.Size = new System.Drawing.Size(560, 373);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 0D;
             this.gMapControl1.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.gMapControl1_OnMarkerClick);
@@ -82,7 +81,7 @@
             // btnCargar
             // 
             this.btnCargar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCargar.Location = new System.Drawing.Point(967, 3);
+            this.btnCargar.Location = new System.Drawing.Point(566, 3);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(75, 23);
             this.btnCargar.TabIndex = 1;
@@ -90,24 +89,10 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(967, 32);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // btnPoligono
             // 
             this.btnPoligono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPoligono.Location = new System.Drawing.Point(967, 58);
+            this.btnPoligono.Location = new System.Drawing.Point(566, 58);
             this.btnPoligono.Name = "btnPoligono";
             this.btnPoligono.Size = new System.Drawing.Size(75, 23);
             this.btnPoligono.TabIndex = 3;
@@ -119,15 +104,15 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(193, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1056, 506);
+            this.tabControl1.Size = new System.Drawing.Size(655, 405);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.trackBar1);
             this.tabPage1.Controls.Add(this.bntPozo);
@@ -136,11 +121,10 @@
             this.tabPage1.Controls.Add(this.gMapControl1);
             this.tabPage1.Controls.Add(this.btnPoligono);
             this.tabPage1.Controls.Add(this.btnCargar);
-            this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1048, 480);
+            this.tabPage1.Size = new System.Drawing.Size(647, 379);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -148,7 +132,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(970, 116);
+            this.button1.Location = new System.Drawing.Point(569, 116);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -159,7 +143,7 @@
             // btnLinea
             // 
             this.btnLinea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLinea.Location = new System.Drawing.Point(967, 87);
+            this.btnLinea.Location = new System.Drawing.Point(566, 87);
             this.btnLinea.Name = "btnLinea";
             this.btnLinea.Size = new System.Drawing.Size(75, 23);
             this.btnLinea.TabIndex = 4;
@@ -190,7 +174,7 @@
             // bntPozo
             // 
             this.bntPozo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntPozo.Location = new System.Drawing.Point(970, 145);
+            this.bntPozo.Location = new System.Drawing.Point(569, 145);
             this.bntPozo.Name = "bntPozo";
             this.bntPozo.Size = new System.Drawing.Size(75, 23);
             this.bntPozo.TabIndex = 6;
@@ -201,7 +185,7 @@
             // trackBar1
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.Location = new System.Drawing.Point(1000, 234);
+            this.trackBar1.Location = new System.Drawing.Point(599, 133);
             this.trackBar1.Maximum = 24;
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
@@ -214,13 +198,20 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(970, 174);
+            this.button2.Location = new System.Drawing.Point(569, 174);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
             this.button2.Text = "Pozos";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(971, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(71, 20);
+            this.textBox1.TabIndex = 9;
             // 
             // Form1
             // 
@@ -231,7 +222,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -246,7 +236,6 @@
 
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Button btnCargar;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnPoligono;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -257,6 +246,7 @@
         private System.Windows.Forms.Button bntPozo;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -18,13 +18,13 @@ namespace OneGMaps
         public Form1()
         {
             InitializeComponent();
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-  
+       GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+       
             cMapas.CMaps = gMapControl1;
             cMapas.PosicionActual = new GMap.NET.PointLatLng(18.239373, -93.905608);
             dataGridView1.DataSource = cdatos.TablaInfo;
@@ -40,11 +40,7 @@ namespace OneGMaps
            
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            cMapas.Carga((int)(numericUpDown1.Value));
-        }
-
+      
         private void button1_Click(object sender, EventArgs e)
         {
             cMapas.Poligonos();
@@ -86,7 +82,7 @@ namespace OneGMaps
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cMapas.Limpiar();
+        Text =    cMapas.Limpiar(textBox1.Text);
         }
     }
 }

@@ -249,6 +249,7 @@ namespace OneGMaps
 
             
             CMaps.Overlays.Add(markers);
+            CMaps.Refresh();
         }
         public void Limpiar()
         {
@@ -256,11 +257,38 @@ namespace OneGMaps
 
             foreach (GMapOverlay elemento in elemn)
             {
-               //for(int i=0; i< 5 && i<elemento.Markers.Count; i++)
-                 //   elemento.Markers.RemoveAt(0);
+                //for(int i=0; i< 5 && i<elemento.Markers.Count; i++)
+                //   elemento.Markers.RemoveAt(0);
+                elemento.Markers.Clear();
                 CMaps.Refresh();
                 
             }
+        }
+
+        public string Limpiar(string Nombre)
+        {
+            if (Nombre.Length < 1)
+                return "Sin coincidencia";
+            var elementos = CMaps.Overlays.ToList();
+            int Numero=0;
+            foreach (GMapOverlay elemento in elementos)
+            {
+                //for(int i=0; i< 5 && i<elemento.Markers.Count; i++)
+                //   elemento.Markers.RemoveAt(0);
+                // elemento.Markers.Clear();
+
+                List<GMapMarker> lista = elemento.Markers.Where(x => x.ToolTipText.Contains(Nombre)).ToList();
+                foreach (GMapMarker marcador in lista)
+                {
+                    elemento.Markers.Remove(marcador);
+                    Numero++;
+                }
+
+                CMaps.Refresh();
+
+            }
+
+            return "Eliminado: "+Numero;
         }
     }
 }
