@@ -297,6 +297,12 @@ namespace Maps
                     dgvCiudades[1, indexRow + 4].Value = mu6[0]["Z2"];
 
                     wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, mu6[0]["LAT_DEC"], mu6[0]["LON_DEC"] });
+                    string Nombre =selec;
+                    double X = Convert.ToDouble(mu6[0]["LAT_DEC"]);
+                    double Y = Convert.ToDouble(mu6[0]["LON_DEC"]);
+                    cMapas.PosicionActual = (cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
+
+
                     break;
 
                 case 2:
@@ -311,6 +317,11 @@ namespace Maps
 
 
                     wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, "", ttt[0]["LAT_DEC"], ttt[0]["LON_DEC"] });
+                    string Nombre_ = selec;
+                    double X_ = Convert.ToDouble(ttt[0]["LAT_DEC"]);
+                    double Y_ = Convert.ToDouble(ttt[0]["LON_DEC"]);
+                    cMapas.PosicionActual = (cMapas.Puntos(new Tuple<string, double, double>(Nombre_, X_, Y_), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
+
                     break;
             }
         }
@@ -497,11 +508,11 @@ namespace Maps
                     string Nombre = Row["Pozo"].ToString();
                     string Apellido = Row["Campo"].ToString();
 
-                    wbEarth.Document.InvokeScript("CreaMarca", new object[] { Nombre, X, Y });
+                   // wbEarth.Document.InvokeScript("CreaMarca", new object[] { Nombre, X, Y });
 
-                    cMapas.Puntos(new Tuple<string, double, double>(Nombre,X,Y),true);
+                   cMapas.PosicionActual=(  cMapas.Puntos(new Tuple<string, double, double>(Nombre,X,Y),true,GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
                     
-                    cMapas.CMaps.Zoom = 12;
+                  //  cMapas.CMaps.Zoom = 12;
                 }
         }
 
@@ -603,7 +614,7 @@ namespace Maps
                         double Y = Convert.ToDouble(Row["LON"]);
                         wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
 
-                        cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true);
+                        cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow_pushpin);
                     }
                   catch
                         { }
@@ -611,7 +622,7 @@ namespace Maps
 
                 }
                 cMapas.PosicionActual = cMapas.UltimoMarcador.Position;
-                cMapas.CMaps.Zoom = 18;
+              //  cMapas.CMaps.Zoom = 18;
                 Notificacion.Visible = false;
 
             }
@@ -798,8 +809,18 @@ namespace Maps
                 var sele = selec.ToString();
                 int index = Nombres.FindIndex(x => x == sele);
                 var Row = dtPrincipal.Rows[index];
-                wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
-            }
+                try
+                {
+                    wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
+                    string Nombre = Row["Pozo"].ToString();
+                    double X = Convert.ToDouble(Row["LAT"]);
+                    double Y = Convert.ToDouble(Row["LON"]);
+
+                    cMapas.PosicionActual = (cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
+
+                }
+                catch { }
+                }
         }
             
 
@@ -930,6 +951,11 @@ namespace Maps
                             int index = Nombres.FindIndex(x => x == sele);
                             var Row = dtPrincipal.Rows[index];
                             wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
+                            string Nombre = Row["Pozo"].ToString();
+                            double X= Convert.ToDouble(Row["LAT"]);
+                            double Y = Convert.ToDouble(Row["LAT"]);
+                            cMapas.PosicionActual = (cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
+
                         }
 
                     }

@@ -144,16 +144,15 @@ namespace Maps
             PosicionActual = marker.Position;
 
         }
-        public GMapMarker Puntos(Tuple<string, double, double> Tupla,bool isGlobal)
+        public GMapMarker Puntos(Tuple<string, double, double> Tupla,bool isGlobal, GMap.NET.WindowsForms.Markers.GMarkerGoogleType Pin)
         {
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            CMaps.SetPositionByKeywords(Tupla.Item1);
+         //   GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+          //  CMaps.SetPositionByKeywords(Tupla.Item1);
             CMaps.ShowCenter = false;
 
             GMap.NET.WindowsForms.GMapMarker marker =
                new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                   new GMap.NET.PointLatLng(Tupla.Item2, Tupla.Item3),
-                   GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow_pushpin);
+                   new GMap.NET.PointLatLng(Tupla.Item2, Tupla.Item3),Pin);
 
 
             marker.ToolTipText = Tupla.Item1;
@@ -169,7 +168,7 @@ namespace Maps
             if (isGlobal)
             {
                 MarcaGlobal.Markers.Add(marker);
-              //  PosicionActual = marker.Position;
+            UltimoMarcador = marker;
             }
             return marker;
 
@@ -252,7 +251,7 @@ namespace Maps
             GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
             foreach (KeyValuePair<string, Tuple<string, double, double>> Tupla in Diccionario)
             {
-                GMapMarker marker = Puntos(Tupla.Value,false);
+                GMapMarker marker = Puntos(Tupla.Value,false, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue);
                 markers.Markers.Add(marker);
             }
 
