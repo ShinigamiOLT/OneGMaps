@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneMaps", "OneMaps\OneMaps.csproj", "{5770010E-77BD-4C0A-975F-9FB93627B3C9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstallMaps", "InstallMaps\InstallMaps.vdproj", "{6AA5AF94-581C-4058-96A7-E0349E87C4DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5770010E-77BD-4C0A-975F-9FB93627B3C9}.Debug|x86.ActiveCfg = Debug|x86
+		{5770010E-77BD-4C0A-975F-9FB93627B3C9}.Debug|x86.Build.0 = Debug|x86
+		{5770010E-77BD-4C0A-975F-9FB93627B3C9}.Release|x86.ActiveCfg = Release|x86
+		{5770010E-77BD-4C0A-975F-9FB93627B3C9}.Release|x86.Build.0 = Release|x86
+		{6AA5AF94-581C-4058-96A7-E0349E87C4DE}.Debug|x86.ActiveCfg = Debug
+		{6AA5AF94-581C-4058-96A7-E0349E87C4DE}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5770010E-77BD-4C0A-975F-9FB93627B3C9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maps</RootNamespace>
+    <AssemblyName>OneMaps</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.9.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="ExportaAExcelDLL">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\Maps\Maps\bin\Debug\ExportaAExcelDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Gigasoft.ProEssentials">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\Maps\Maps\bin\Debug\Gigasoft.ProEssentials.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core">
+      <HintPath>DLLExterno\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms">
+      <HintPath>DLLExterno\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="OneProCurvaDistribucion">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\Maps\Maps\bin\Debug\OneProCurvaDistribucion.dll</HintPath>
+    </Reference>
+    <Reference Include="OneProEstadistica">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\Maps\Maps\bin\Debug\OneProEstadistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2012\Projects\Maps\Maps\bin\Debug\ProjNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aritmetica\Evaluador.cs" />
+    <Compile Include="Aritmetica\fAritmetica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aritmetica\fAritmetica.designer.cs">
+      <DependentUpon>fAritmetica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aritmetica\ucRadio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Aritmetica\ucRadio.designer.cs">
+      <DependentUpon>ucRadio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capturar Pantalla\frmFondo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Capturar Pantalla\frmFondo.designer.cs">
+      <DependentUpon>frmFondo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capturar Pantalla\MetodosUtiles.cs" />
+    <Compile Include="cCargaDatos.cs" />
+    <Compile Include="cDiccionarios.cs" />
+    <Compile Include="contenedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="contenedor.designer.cs">
+      <DependentUpon>contenedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Carga Datos\Load_txt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Carga Datos\Load_txt.designer.cs">
+      <DependentUpon>Load_txt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Conversor.cs" />
+    <Compile Include="Cosas Nuevas\Datos\BusquedadeDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\BusquedadeDatos.designer.cs">
+      <DependentUpon>BusquedadeDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\ClasificacionXvalor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\ClasificacionXvalor.designer.cs">
+      <DependentUpon>ClasificacionXvalor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Clasificadorxfecha.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Clasificadorxfecha.designer.cs">
+      <DependentUpon>Clasificadorxfecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\classploter_pego.cs" />
+    <Compile Include="Cosas Nuevas\Datos\Comparativa de tabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Comparativa de tabla.designer.cs">
+      <DependentUpon>Comparativa de tabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\ConfGrafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\ConfGrafica.designer.cs">
+      <DependentUpon>ConfGrafica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Constantes_Conf.cs" />
+    <Compile Include="Cosas Nuevas\Datos\Core_Clasificador.cs" />
+    <Compile Include="Cosas Nuevas\Datos\Editor de Columnas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Editor de Columnas.designer.cs">
+      <DependentUpon>Editor de Columnas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\EventosDGv.cs" />
+    <Compile Include="Cosas Nuevas\Datos\ExportaGraficas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\ExportaGraficas.designer.cs">
+      <DependentUpon>ExportaGraficas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\filtratabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\filtratabla.designer.cs">
+      <DependentUpon>filtratabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\frmGerarquizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\frmGerarquizar.designer.cs">
+      <DependentUpon>frmGerarquizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\frm_generadorCurvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\frm_generadorCurvas.designer.cs">
+      <DependentUpon>frm_generadorCurvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Histograma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Histograma.designer.cs">
+      <DependentUpon>Histograma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\mainClasificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\mainClasificador.designer.cs">
+      <DependentUpon>mainClasificador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\one_Core_Perfiles.cs" />
+    <Compile Include="Cosas Nuevas\Datos\One_Core_Produccion.cs" />
+    <Compile Include="Cosas Nuevas\Datos\one_form_Produccion_OrigenDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\one_form_Produccion_OrigenDatos.designer.cs">
+      <DependentUpon>one_form_Produccion_OrigenDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\origenCore.cs" />
+    <Compile Include="Cosas Nuevas\Datos\SoloNombre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\SoloNombre.designer.cs">
+      <DependentUpon>SoloNombre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\userboton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\userboton.designer.cs">
+      <DependentUpon>userboton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Visor_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\Datos\Visor_Datos.designer.cs">
+      <DependentUpon>Visor_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\ETL\Califica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\ETL\Califica.designer.cs">
+      <DependentUpon>Califica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\ETL\cETL.cs" />
+    <Compile Include="Cosas Nuevas\ETL\CoreCalifica.cs" />
+    <Compile Include="Cosas Nuevas\ETL\UserNompozos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\ETL\UserNompozos.designer.cs">
+      <DependentUpon>UserNompozos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cosas Nuevas\NewFolder1\userFiltroElemento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cosas Nuevas\NewFolder1\userFiltroElemento.designer.cs">
+      <DependentUpon>userFiltroElemento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etiquetas\cEtiqueta.cs" />
+    <Compile Include="Etiquetas\ucEtiquetas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Etiquetas\ucEtiquetas.Designer.cs">
+      <DependentUpon>ucEtiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fnSeleccionAreas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fnSeleccionAreas.designer.cs">
+      <DependentUpon>fnSeleccionAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OneMaps.cs" />
+    <Compile Include="OneMapsDatos.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucAnotacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAnotacion.designer.cs">
+      <DependentUpon>ucAnotacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucAnotaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAnotaciones.designer.cs">
+      <DependentUpon>ucAnotaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucArea.designer.cs">
+      <DependentUpon>ucArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBurbujas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBurbujas.designer.cs">
+      <DependentUpon>ucBurbujas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCirculos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCirculos.designer.cs">
+      <DependentUpon>ucCirculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucConvertidor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucConvertidor.designer.cs">
+      <DependentUpon>ucConvertidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMaestro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMaestro.designer.cs">
+      <DependentUpon>ucMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMarcas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMarcas.designer.cs">
+      <DependentUpon>ucMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMasters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMasters.designer.cs">
+      <DependentUpon>ucMasters.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Aritmetica\fAritmetica.resx">
+      <DependentUpon>fAritmetica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aritmetica\ucRadio.resx">
+      <DependentUpon>ucRadio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Capturar Pantalla\frmFondo.resx">
+      <DependentUpon>frmFondo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contenedor.resx">
+      <DependentUpon>contenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Carga Datos\Load_txt.resx">
+      <DependentUpon>Load_txt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\BusquedadeDatos.resx">
+      <DependentUpon>BusquedadeDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\ClasificacionXvalor.resx">
+      <DependentUpon>ClasificacionXvalor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\Clasificadorxfecha.resx">
+      <DependentUpon>Clasificadorxfecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\Comparativa de tabla.resx">
+      <DependentUpon>Comparativa de tabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\ConfGrafica.resx">
+      <DependentUpon>ConfGrafica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\Editor de Columnas.resx">
+      <DependentUpon>Editor de Columnas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\ExportaGraficas.resx">
+      <DependentUpon>ExportaGraficas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\filtratabla.resx">
+      <DependentUpon>filtratabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\frmGerarquizar.resx">
+      <DependentUpon>frmGerarquizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\frm_generadorCurvas.resx">
+      <DependentUpon>frm_generadorCurvas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\Histograma.resx">
+      <DependentUpon>Histograma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\mainClasificador.resx">
+      <DependentUpon>mainClasificador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\one_form_Produccion_OrigenDatos.resx">
+      <DependentUpon>one_form_Produccion_OrigenDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\SoloNombre.resx">
+      <DependentUpon>SoloNombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\userboton.resx">
+      <DependentUpon>userboton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\Datos\Visor_Datos.resx">
+      <DependentUpon>Visor_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\ETL\Califica.resx">
+      <DependentUpon>Califica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\ETL\UserNompozos.resx">
+      <DependentUpon>UserNompozos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosas Nuevas\NewFolder1\userFiltroElemento.resx">
+      <DependentUpon>userFiltroElemento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etiquetas\ucEtiquetas.resx">
+      <DependentUpon>ucEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fnSeleccionAreas.resx">
+      <DependentUpon>fnSeleccionAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ucAnotacion.resx">
+      <DependentUpon>ucAnotacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAnotaciones.resx">
+      <DependentUpon>ucAnotaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucArea.resx">
+      <DependentUpon>ucArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBurbujas.resx">
+      <DependentUpon>ucBurbujas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCirculos.resx">
+      <DependentUpon>ucCirculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucConvertidor.resx">
+      <DependentUpon>ucConvertidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMaestro.resx">
+      <DependentUpon>ucMaestro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMarcas.resx">
+      <DependentUpon>ucMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMasters.resx">
+      <DependentUpon>ucMasters.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pegar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reemplazar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Visualizar tabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar tabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Busqueda avanzada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calcular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cortar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deshacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Diccionario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editartabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar columna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar fila1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\etiquetar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filtrar archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importar exportar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\informe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertar columna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insertar fila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar fila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DLLExterno\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
