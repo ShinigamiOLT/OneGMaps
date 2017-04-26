@@ -13,8 +13,6 @@ using System.IO;
 
 namespace Maps
 {
-    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
-    //[PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public partial class Form1 : Form
     {
         OneMaps cMapas;
@@ -108,9 +106,7 @@ namespace Maps
         private void Form1_Load(object sender, EventArgs e)
         {
             dgvDistancia.Rows.Add(2);
-            wbEarth.Navigate(Url1);
-            wbEarth.ObjectForScripting = this;
-            lisG = new List<DataGridViewRow>();
+           lisG = new List<DataGridViewRow>();
 
             dgvInfoGeneral.Rows.Add(22);
             dgvInfoGeneral[0, 0].Selected = false;
@@ -160,8 +156,7 @@ namespace Maps
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var alog = wbEarth.Document.InvokeScript("CreaMarca", new object[] { "Sergio", 17.997164, -93.11448 });
-        }
+       }
 
         /// <summary>
         /// Esta funcion se invoca desde el script, con la propiedad de window.external
@@ -173,8 +168,8 @@ namespace Maps
             if (columna > 1)
             {
                 columna = 0;
-                wbEarth.Document.InvokeScript("RemovePlaceMark");
-                wbEarth.Document.InvokeScript("RemovePMark", new object[] { "La distancia es:" });
+              //  wbEarth.Document.InvokeScript("RemovePlaceMark");
+              //  wbEarth.Document.InvokeScript("RemovePMark", new object[] { "La distancia es:" });
 
                 dgvDistancia.Rows.Clear();
                 dgvDistancia.Rows.Add(2);
@@ -208,13 +203,13 @@ namespace Maps
                 Contenedor[4] = "";
                 Contenedor[5] = 2;
                 Contenedor[6] = "";
-                wbEarth.Document.InvokeScript("CreaLinea", Contenedor);
+               // wbEarth.Document.InvokeScript("CreaLinea", Contenedor);
                 var distanc = distancia((double)arraryA[0], (double)arraryA[1], (double)arraryB[0], (double)arraryB[1]);
 
                 object a = (double.Parse(dgvDistancia[0, 0].Value.ToString()) + double.Parse(dgvDistancia[0, 1].Value.ToString())) / 2;
                 object b = (double.Parse(dgvDistancia[1, 0].Value.ToString()) + double.Parse(dgvDistancia[1, 1].Value.ToString())) / 2;
                 object nom = "La distancia es: " + (Math.Round(distanc * 111.111, 3)).ToString() + " Km";
-                wbEarth.Document.InvokeScript("CreaMarcaRoja", new object[] { nom, a, b });
+             //   wbEarth.Document.InvokeScript("CreaMarcaRoja", new object[] { nom, a, b });
             }
             catch
             {
@@ -227,29 +222,15 @@ namespace Maps
 
         private void button3_Click(object sender, EventArgs e)
         {
-            wbEarth.Document.InvokeScript("RemovePMark", new object[] { "Sergio" });
-        }
+}
 
         private void button4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBoxTerrain_CheckedChanged(object sender, EventArgs e)
-        {
-            Capas();
-        }
 
-        private void Capas()
-        {
-            Object[] args = new object[] {
-                cbxTerrenos.Checked,
-                cbxCarreteras.Checked,
-                cbxFronteras.Checked,
-                cbxEdificios.Checked
-            };
-            wbEarth.Document.InvokeScript("toggleGeLayers", args);
-        }
+       
 
         bool SoloUnaVezCiudades = true;
         int indexRow = 0;
@@ -296,7 +277,7 @@ namespace Maps
                     dgvCiudades[1, indexRow + 3].Value = mu6[0]["LON_DEC"];
                     dgvCiudades[1, indexRow + 4].Value = mu6[0]["Z2"];
 
-                    wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, mu6[0]["LAT_DEC"], mu6[0]["LON_DEC"] });
+                  //  wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, mu6[0]["LAT_DEC"], mu6[0]["LON_DEC"] });
                     string Nombre =selec;
                     double X = Convert.ToDouble(mu6[0]["LAT_DEC"]);
                     double Y = Convert.ToDouble(mu6[0]["LON_DEC"]);
@@ -316,7 +297,7 @@ namespace Maps
                     dgvCiudades[1, indexRow + 3].Value = ttt[0]["Z2"];
 
 
-                    wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, "", ttt[0]["LAT_DEC"], ttt[0]["LON_DEC"] });
+                  //  wbEarth.Document.InvokeScript("CreaMarca", new object[] { selec, "", ttt[0]["LAT_DEC"], ttt[0]["LON_DEC"] });
                     string Nombre_ = selec;
                     double X_ = Convert.ToDouble(ttt[0]["LAT_DEC"]);
                     double Y_ = Convert.ToDouble(ttt[0]["LON_DEC"]);
@@ -511,7 +492,7 @@ namespace Maps
                    // wbEarth.Document.InvokeScript("CreaMarca", new object[] { Nombre, X, Y });
 
                    cMapas.PosicionActual=(  cMapas.Puntos(new Tuple<string, double, double>(Nombre,X,Y),true,GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
-                    
+                    cMapas.CirculoFormula(cMapas.PosicionActual,Convert.ToDouble(textBox1.Text)  );// ("Hola",Color.Red,cMapas.UltimoMarcador.Position, 5000 /111.111f, 1,"") ;//(cMapas.UltimoMarcador,5000);
                   //  cMapas.CMaps.Zoom = 12;
                 }
         }
@@ -528,7 +509,7 @@ namespace Maps
                     if (double.TryParse(row["LAT"].ToString(), out xTabla) && double.TryParse(row["LON"].ToString(), out yTabla))
                         if (distancia(valX, xTabla, valY, yTabla) <= AuxRadio)
                         {
-                            wbEarth.Document.InvokeScript("CreaMarcaAnillo", new object[] { row["Pozo"].ToString() + id, "", xTabla, yTabla });
+                          //  wbEarth.Document.InvokeScript("CreaMarcaAnillo", new object[] { row["Pozo"].ToString() + id, "", xTabla, yTabla });
                             circuloC.Add(row["Pozo"].ToString()+id); TablaAreas.Rows.Add(nomb, row["Pozo"].ToString(), xTabla, yTabla);
                         }
                 if (!dicCirculos.ContainsKey(nomb))
@@ -542,11 +523,7 @@ namespace Maps
             { }
         }
 
-        private void cbxTerrenos_CheckedChanged(object sender, DevComponents.DotNetBar.CheckBoxChangeEventArgs e)
-        {
-            Capas();
-        }
-
+     
         private void btnCargaMax_Click(object sender, EventArgs e)
         {
             List<ObjetoSelecionable> Seleccion = new List<ObjetoSelecionable>();
@@ -569,7 +546,7 @@ namespace Maps
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            wbEarth.Refresh();
+         //   wbEarth.Refresh();
         }
 
         private void buttonItem2_Click(object sender, EventArgs e)
@@ -612,7 +589,7 @@ namespace Maps
                         string Nombre = Row["Pozo"].ToString();
                         double X = Convert.ToDouble(Row["LAT"]);
                         double Y = Convert.ToDouble(Row["LON"]);
-                        wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
+                      //  wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
 
                         cMapas.Puntos(new Tuple<string, double, double>(Nombre, X, Y), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow_pushpin);
                     }
@@ -656,13 +633,10 @@ namespace Maps
         private void buttonItem3_Click(object sender, EventArgs e)
         {
             string valor = dgvInfoGeneral[1, 1].Value.ToString().ToUpper().Split('-')[0];
-            wbEarth.Document.InvokeScript("RemovePMark", new object[] { valor });
+       //     wbEarth.Document.InvokeScript("RemovePMark", new object[] { valor });
         }
 
-        private void buttonItem3_Click_1(object sender, EventArgs e)
-        {
-            wbEarth.Document.InvokeScript("createCirclePolygon", new object[] { 17.997164, -93.11448, 10 / 111.11 });
-        }
+       
 
         private void btnTablaCirculos_Click(object sender, EventArgs e)
         {
@@ -672,10 +646,7 @@ namespace Maps
             ventana.ShowDialog();
         }
 
-        private void btnBurbujas_Click(object sender, EventArgs e)
-        {
-            wbEarth.Navigate(Url2);
-        }
+      
 
         private void buttonItem4_Click(object sender, EventArgs e)
         {
@@ -694,7 +665,7 @@ namespace Maps
                     {
                         double burbuja = element / maxi * 0.5;
                         row["Tamano Burbuja"] = burbuja;
-                        wbEarth.Document.InvokeScript("creaCirculos", new object[] { row["Pozo"].ToString(), double.Parse(row["LAT"].ToString()), double.Parse(row["LON"].ToString()), burbuja / 111.111f });
+                     //   wbEarth.Document.InvokeScript("creaCirculos", new object[] { row["Pozo"].ToString(), double.Parse(row["LAT"].ToString()), double.Parse(row["LON"].ToString()), burbuja / 111.111f });
                     }
                 }
 
@@ -742,8 +713,8 @@ namespace Maps
                         string visible = auxRow.Cells["Visible"].Value.ToString();
                         if (visible == "True")
                         {
-                            wbEarth.Document.InvokeScript("CreaMarcaRoja", new object[] { NomPadre + id, x, y });
-                            wbEarth.Document.InvokeScript("CreaCirculo", new object[] { "Anillo" + NomPadre + id, Color1, x, y, radio / 111.111, 2 });
+                          //  wbEarth.Document.InvokeScript("CreaMarcaRoja", new object[] { NomPadre + id, x, y });
+                          //  wbEarth.Document.InvokeScript("CreaCirculo", new object[] { "Anillo" + NomPadre + id, Color1, x, y, radio / 111.111, 2 });
                             agregarAreaRadio(NomPadre + id, x, y, radio, id);
 
                         }
@@ -757,7 +728,7 @@ namespace Maps
                                 var lista = dicCirculos[nombre];
                                 foreach (string nam in lista)
                                 {
-                                    wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { nam });
+                                   // wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { nam });
                                 }
                                 dicCirculos.Remove(nombre);
                             }
@@ -776,13 +747,13 @@ namespace Maps
                 var lista = dicCirculos[NomPadre];
                 foreach (string nam in lista)
                 {
-                    wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { nam });
+                 //   wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { nam });
                 }
 
                 dicCirculos.Remove(NomPadre);
             }
-            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { "Anillo" + NomPadre });
-            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { NomPadre });
+          //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { "Anillo" + NomPadre });
+           // wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { NomPadre });
             radioAnterior++;
         }
 
@@ -798,7 +769,7 @@ namespace Maps
             foreach (ObjetoSelecionable onj in dicVecinos[name].FindAll(x => !x.Estado))
             {
                 string cad = onj.ToString();
-                wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { cad });
+               // wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { cad });
             }
         }
 
@@ -811,7 +782,7 @@ namespace Maps
                 var Row = dtPrincipal.Rows[index];
                 try
                 {
-                    wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
+                  //  wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
                     string Nombre = Row["Pozo"].ToString();
                     double X = Convert.ToDouble(Row["LAT"]);
                     double Y = Convert.ToDouble(Row["LON"]);
@@ -875,8 +846,9 @@ namespace Maps
                         foreach (ObjetoSelecionable selec in dicVecinos[name])
                         {
                             var sele = selec.ToString();
-                            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { sele });
-                        } wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { name });
+                          //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { sele });
+                        }
+                        //wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { name });
                         dicVecinos.Remove(name);
                         RowEdit.Remove(dataGridViewX1.Rows[e.RowIndex]);
                         dataGridViewX1.Rows.RemoveAt(e.RowIndex);
@@ -903,10 +875,10 @@ namespace Maps
 
                         foreach (string selec in dicCirculos[name])
                         {
-                            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { selec });
+                         //   wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { selec });
                         }
-                        wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { "Anillo" + name });
-                        wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { name });
+                      //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { "Anillo" + name });
+                      //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { name });
                         dicVecinos.Remove(name);
                         RowEdit.Remove(dataGridViewX1.Rows[e.RowIndex]);
                         dataGridViewX1.Rows.RemoveAt(e.RowIndex);
@@ -942,7 +914,7 @@ namespace Maps
                         foreach (ObjetoSelecionable selec in dicVecinos[nombre].FindAll(x => !x.Estado))
                         {
                             var sele = selec.ToString();
-                            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { sele });
+                          //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { sele });
                         }
 
                         foreach (ObjetoSelecionable selec in nuevalista)
@@ -950,7 +922,7 @@ namespace Maps
                             var sele = selec.ToString();
                             int index = Nombres.FindIndex(x => x == sele);
                             var Row = dtPrincipal.Rows[index];
-                            wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
+                          //  wbEarth.Document.InvokeScript("CreaMarca", new object[] { Row["Pozo"], Row["LAT"], Row["LON"] });
                             string Nombre = Row["Pozo"].ToString();
                             double X= Convert.ToDouble(Row["LAT"]);
                             double Y = Convert.ToDouble(Row["LAT"]);
@@ -965,7 +937,7 @@ namespace Maps
                         var nuevalista = dicVecinos[nombre];
                         foreach (ObjetoSelecionable selec in nuevalista)
                         {
-                            wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { selec.ToString() });
+                          //  wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { selec.ToString() });
                         }
                     }
                 }
@@ -984,7 +956,7 @@ namespace Maps
             //contendor.Controls.Add(anotacion);
             //contendor.ShowDialog();
             //contendor.Size = new Size(665, 300);
-            ucAnotacion ANOTA = new ucAnotacion(dicPrincipal, TablaAnotacion, wbEarth, Notificacion, Metadatos, lisG);
+            ucAnotacion ANOTA = new ucAnotacion(dicPrincipal, TablaAnotacion, new WebBrowser(), Notificacion, Metadatos, lisG);
             ANOTA.Dock = DockStyle.Fill;
             contendor.Controls.Clear();
             contendor.Controls.Add(ANOTA);
@@ -1016,7 +988,7 @@ namespace Maps
         private void btnMarcas_Click(object sender, EventArgs e)
         {
             contendor.Size = new Size(310, 185);
-            ucMarcas MArcas = new ucMarcas(dicPrincipal, wbEarth);
+            ucMarcas MArcas = new ucMarcas(dicPrincipal,new WebBrowser());
             MArcas.Dock = DockStyle.Fill;
             contendor.Controls.Clear();
             contendor.Controls.Add(MArcas);
@@ -1081,7 +1053,7 @@ namespace Maps
         {
             if (dicPrincipal.Count > 0)
             {
-                ucMasters master = new ucMasters(dicPrincipal, TablaBurbujas, wbEarth, Notificacion, RowEdit1);
+                ucMasters master = new ucMasters(dicPrincipal, TablaBurbujas, new WebBrowser(), Notificacion, RowEdit1);
                 master.Dock = DockStyle.Fill;
                 contendor.Controls.Clear();
                 contendor.Controls.Add(master);
@@ -1101,8 +1073,8 @@ namespace Maps
             try
             {
                 dtArea.Rows.Clear();
-                fnSeleccionAreas seleccionAreas = new fnSeleccionAreas(dtArea, dicPrincipal, TAreas,wbEarth);
-                wbEarth.Document.InvokeScript("EstablecePoligono", new object[] { true });
+                fnSeleccionAreas seleccionAreas = new fnSeleccionAreas(dtArea, dicPrincipal, TAreas,new WebBrowser());
+               // wbEarth.Document.InvokeScript("EstablecePoligono", new object[] { true });
                 seleccionAreas.Show(this);
             }
             catch
@@ -1191,7 +1163,7 @@ namespace Maps
             {
                 if (dicPrincipal.Values.Count > 0)
                 {
-                    ucArea areas = new ucArea(dicPrincipal, TAreas, wbEarth, Notificacion, RowEdit);
+                    ucArea areas = new ucArea(dicPrincipal, TAreas, new WebBrowser(), Notificacion, RowEdit);
                     areas.Dock = DockStyle.Fill;
                     contendor.Controls.Clear();
                     contendor.Controls.Add(areas);
@@ -1242,7 +1214,7 @@ namespace Maps
 
         private void buttonItem7_Click(object sender, EventArgs e)
         {
-            wbEarth.Document.InvokeScript("CambiaPin");
+         
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -1296,6 +1268,12 @@ namespace Maps
         private void gMapControl1_OnMapZoomChanged()
         {
             trackBar1.Value = (int)cMapas.CMaps.Zoom;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            cMapas.CMaps.ShowCenter = true;
+            cMapas.Buscar(textBox1.Text);
         }
     }
 }

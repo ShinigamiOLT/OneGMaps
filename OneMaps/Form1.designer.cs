@@ -30,12 +30,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,18 +43,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxTerrain = new System.Windows.Forms.CheckBox();
-            this.checkBoxBorders = new System.Windows.Forms.CheckBox();
-            this.checkBoxRoads = new System.Windows.Forms.CheckBox();
-            this.checkBoxBuildings = new System.Windows.Forms.CheckBox();
             this.dgvDistancia = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCiudades = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wbEarth = new System.Windows.Forms.WebBrowser();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,10 +83,6 @@
             this.btnTablaCirculos = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.explorerBarGroupItem3 = new DevComponents.DotNetBar.ExplorerBarGroupItem();
-            this.cbxTerrenos = new DevComponents.DotNetBar.CheckBoxItem();
-            this.cbxCarreteras = new DevComponents.DotNetBar.CheckBoxItem();
-            this.cbxEdificios = new DevComponents.DotNetBar.CheckBoxItem();
-            this.cbxFronteras = new DevComponents.DotNetBar.CheckBoxItem();
             this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
             this.explorerBarGroupItem4 = new DevComponents.DotNetBar.ExplorerBarGroupItem();
@@ -126,12 +116,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDistancia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudades)).BeginInit();
             this.panel_final.SuspendLayout();
@@ -156,7 +147,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.dgvDistancia);
             // 
             // splitContainer1.Panel2
@@ -220,65 +210,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkBoxTerrain);
-            this.groupBox1.Controls.Add(this.checkBoxBorders);
-            this.groupBox1.Controls.Add(this.checkBoxRoads);
-            this.groupBox1.Controls.Add(this.checkBoxBuildings);
-            this.groupBox1.Location = new System.Drawing.Point(128, 88);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(101, 120);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Capas";
-            // 
-            // checkBoxTerrain
-            // 
-            this.checkBoxTerrain.AutoSize = true;
-            this.checkBoxTerrain.Checked = true;
-            this.checkBoxTerrain.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTerrain.Location = new System.Drawing.Point(6, 20);
-            this.checkBoxTerrain.Name = "checkBoxTerrain";
-            this.checkBoxTerrain.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxTerrain.TabIndex = 6;
-            this.checkBoxTerrain.Text = "Terrenos";
-            this.checkBoxTerrain.UseVisualStyleBackColor = true;
-            this.checkBoxTerrain.CheckedChanged += new System.EventHandler(this.checkBoxTerrain_CheckedChanged);
-            // 
-            // checkBoxBorders
-            // 
-            this.checkBoxBorders.AutoSize = true;
-            this.checkBoxBorders.Location = new System.Drawing.Point(6, 89);
-            this.checkBoxBorders.Name = "checkBoxBorders";
-            this.checkBoxBorders.Size = new System.Drawing.Size(70, 17);
-            this.checkBoxBorders.TabIndex = 9;
-            this.checkBoxBorders.Text = "Fronteras";
-            this.checkBoxBorders.UseVisualStyleBackColor = true;
-            this.checkBoxBorders.CheckedChanged += new System.EventHandler(this.checkBoxTerrain_CheckedChanged);
-            // 
-            // checkBoxRoads
-            // 
-            this.checkBoxRoads.AutoSize = true;
-            this.checkBoxRoads.Location = new System.Drawing.Point(6, 43);
-            this.checkBoxRoads.Name = "checkBoxRoads";
-            this.checkBoxRoads.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxRoads.TabIndex = 7;
-            this.checkBoxRoads.Text = "Carreteras";
-            this.checkBoxRoads.UseVisualStyleBackColor = true;
-            this.checkBoxRoads.CheckedChanged += new System.EventHandler(this.checkBoxTerrain_CheckedChanged);
-            // 
-            // checkBoxBuildings
-            // 
-            this.checkBoxBuildings.AutoSize = true;
-            this.checkBoxBuildings.Location = new System.Drawing.Point(6, 66);
-            this.checkBoxBuildings.Name = "checkBoxBuildings";
-            this.checkBoxBuildings.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxBuildings.TabIndex = 8;
-            this.checkBoxBuildings.Text = "Edificios";
-            this.checkBoxBuildings.UseVisualStyleBackColor = true;
-            this.checkBoxBuildings.CheckedChanged += new System.EventHandler(this.checkBoxTerrain_CheckedChanged);
-            // 
             // dgvDistancia
             // 
             this.dgvDistancia.AllowUserToAddRows = false;
@@ -309,39 +240,39 @@
             this.dgvCiudades.AllowUserToAddRows = false;
             this.dgvCiudades.AllowUserToDeleteRows = false;
             this.dgvCiudades.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCiudades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCiudades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgvCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCiudades.ColumnHeadersVisible = false;
             this.dgvCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCiudades.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCiudades.DefaultCellStyle = dataGridViewCellStyle32;
             this.dgvCiudades.EnableHeadersVisualStyles = false;
             this.dgvCiudades.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvCiudades.Location = new System.Drawing.Point(47, 12);
             this.dgvCiudades.Name = "dgvCiudades";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCiudades.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCiudades.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dgvCiudades.RowHeadersVisible = false;
             this.dgvCiudades.Size = new System.Drawing.Size(240, 135);
             this.dgvCiudades.TabIndex = 70;
@@ -362,19 +293,6 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Column2";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // wbEarth
-            // 
-            this.wbEarth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wbEarth.IsWebBrowserContextMenuEnabled = false;
-            this.wbEarth.Location = new System.Drawing.Point(0, 3);
-            this.wbEarth.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbEarth.Name = "wbEarth";
-            this.wbEarth.ScriptErrorsSuppressed = true;
-            this.wbEarth.Size = new System.Drawing.Size(614, 1114);
-            this.wbEarth.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -538,39 +456,39 @@
             this.dgvInfoGeneral.AllowUserToAddRows = false;
             this.dgvInfoGeneral.AllowUserToDeleteRows = false;
             this.dgvInfoGeneral.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInfoGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInfoGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dgvInfoGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInfoGeneral.ColumnHeadersVisible = false;
             this.dgvInfoGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInfoGeneral.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInfoGeneral.DefaultCellStyle = dataGridViewCellStyle35;
             this.dgvInfoGeneral.EnableHeadersVisualStyles = false;
             this.dgvInfoGeneral.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvInfoGeneral.Location = new System.Drawing.Point(1, 191);
             this.dgvInfoGeneral.Name = "dgvInfoGeneral";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInfoGeneral.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInfoGeneral.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvInfoGeneral.RowHeadersVisible = false;
             this.dgvInfoGeneral.Size = new System.Drawing.Size(240, 487);
             this.dgvInfoGeneral.TabIndex = 69;
@@ -911,10 +829,6 @@
             this.explorerBarGroupItem3.Name = "explorerBarGroupItem3";
             this.explorerBarGroupItem3.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.Silver;
             this.explorerBarGroupItem3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.cbxTerrenos,
-            this.cbxCarreteras,
-            this.cbxEdificios,
-            this.cbxFronteras,
             this.buttonItem4,
             this.buttonItem6});
             this.explorerBarGroupItem3.Text = "Opciones Mapa";
@@ -938,34 +852,6 @@
             this.explorerBarGroupItem3.TitleStyle.CornerTypeTopLeft = DevComponents.DotNetBar.eCornerType.Rounded;
             this.explorerBarGroupItem3.TitleStyle.CornerTypeTopRight = DevComponents.DotNetBar.eCornerType.Rounded;
             this.explorerBarGroupItem3.TitleStyle.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            // 
-            // cbxTerrenos
-            // 
-            this.cbxTerrenos.Name = "cbxTerrenos";
-            this.cbxTerrenos.Text = "Terrenos";
-            this.cbxTerrenos.ThemeAware = true;
-            this.cbxTerrenos.CheckedChanged += new DevComponents.DotNetBar.CheckBoxChangeEventHandler(this.cbxTerrenos_CheckedChanged);
-            // 
-            // cbxCarreteras
-            // 
-            this.cbxCarreteras.Name = "cbxCarreteras";
-            this.cbxCarreteras.Text = "Carreteras";
-            this.cbxCarreteras.ThemeAware = true;
-            this.cbxCarreteras.CheckedChanged += new DevComponents.DotNetBar.CheckBoxChangeEventHandler(this.cbxTerrenos_CheckedChanged);
-            // 
-            // cbxEdificios
-            // 
-            this.cbxEdificios.Name = "cbxEdificios";
-            this.cbxEdificios.Text = "Edificios";
-            this.cbxEdificios.ThemeAware = true;
-            this.cbxEdificios.CheckedChanged += new DevComponents.DotNetBar.CheckBoxChangeEventHandler(this.cbxTerrenos_CheckedChanged);
-            // 
-            // cbxFronteras
-            // 
-            this.cbxFronteras.Name = "cbxFronteras";
-            this.cbxFronteras.Text = "Fronteras";
-            this.cbxFronteras.ThemeAware = true;
-            this.cbxFronteras.CheckedChanged += new DevComponents.DotNetBar.CheckBoxChangeEventHandler(this.cbxTerrenos_CheckedChanged);
             // 
             // buttonItem4
             // 
@@ -1204,6 +1090,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button9);
+            this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.trackBar1);
@@ -1361,7 +1249,6 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.splitContainer1);
-            this.tabPage3.Controls.Add(this.wbEarth);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -1369,6 +1256,27 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.Location = new System.Drawing.Point(547, 203);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "Buscar";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Location = new System.Drawing.Point(547, 232);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 11;
+            this.button9.Text = "Buscar";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1387,8 +1295,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDistancia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudades)).EndInit();
             this.panel_final.ResumeLayout(false);
@@ -1409,7 +1315,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        public System.Windows.Forms.WebBrowser wbEarth;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvDistancia;
         private System.Windows.Forms.Button button2;
@@ -1418,11 +1323,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBoxTerrain;
-        private System.Windows.Forms.CheckBox checkBoxBorders;
-        private System.Windows.Forms.CheckBox checkBoxRoads;
-        private System.Windows.Forms.CheckBox checkBoxBuildings;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1450,10 +1350,6 @@
         private DevComponents.Editors.ComboItem comboItem4;
         private System.Windows.Forms.Button button6;
         private DevComponents.DotNetBar.ExplorerBarGroupItem explorerBarGroupItem3;
-        private DevComponents.DotNetBar.CheckBoxItem cbxTerrenos;
-        private DevComponents.DotNetBar.CheckBoxItem cbxCarreteras;
-        private DevComponents.DotNetBar.CheckBoxItem cbxEdificios;
-        private DevComponents.DotNetBar.CheckBoxItem cbxFronteras;
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.Editors.ComboItem cbiAnotaciones;
         private DevComponents.Editors.ComboItem cbiVecinos;
@@ -1497,6 +1393,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 
