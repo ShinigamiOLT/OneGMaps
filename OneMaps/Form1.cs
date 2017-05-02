@@ -18,8 +18,6 @@ namespace Maps
         OneMaps cMapas;
         OneMapsDatos cdatos = new OneMapsDatos();
         public int columna;
-        private string Url1 = AppDomain.CurrentDomain.BaseDirectory + "pluginhost.html";
-        private string Url2 = AppDomain.CurrentDomain.BaseDirectory + "MapasBurbujas.html";
         Dictionary<string, DataTable> dicPrincipal;
         public List<DataGridViewRow> RowEdit { get; set; }
         Dictionary<string, List<string>> dicCirculos;
