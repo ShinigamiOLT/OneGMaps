@@ -39,6 +39,15 @@ namespace Maps
         System.Threading.Thread p1;
         System.Threading.Thread p2;
         cDiccionarios Metadatos;
+        List<DataGridViewRow> lisG;
+        List<string> municipios;
+        List<string> colonias;
+        contenedor contendor = new contenedor();
+        double radioAnterior = 0;
+        DataTable dtArea = new DataTable();
+        List<DataGridViewRow> RowEdit1 = new List<DataGridViewRow>();
+        bool SoloUnaVezCiudades = true;
+        int indexRow = 0;
 
         public Form1()
         {
@@ -228,10 +237,6 @@ namespace Maps
         }
 
 
-       
-
-        bool SoloUnaVezCiudades = true;
-        int indexRow = 0;
         private void dgvCiudades_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (SoloUnaVezCiudades)
@@ -245,8 +250,7 @@ namespace Maps
             } indexRow = dgvCiudades.CurrentRow.Index;
         }
 
-        List<string> municipios;
-        List<string> colonias;
+       
         private void otro(object sender, EventArgs e)
         {
             dgvCiudades.EndEdit();
@@ -490,7 +494,7 @@ namespace Maps
                    // wbEarth.Document.InvokeScript("CreaMarca", new object[] { Nombre, X, Y });
 
                    cMapas.PosicionActual=(  cMapas.Puntos(new Tuple<string, double, double>(Nombre,X,Y),true,GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_pushpin)).Position;
-                    cMapas.CirculoFormula(cMapas.PosicionActual,Convert.ToDouble(textBox1.Text)  );// ("Hola",Color.Red,cMapas.UltimoMarcador.Position, 5000 /111.111f, 1,"") ;//(cMapas.UltimoMarcador,5000);
+                    cMapas.Circulo(cMapas.PosicionActual,10  ,   Nombre);// ("Hola",Color.Red,cMapas.UltimoMarcador.Position, 5000 /111.111f, 1,"") ;//(cMapas.UltimoMarcador,5000);
                   //  cMapas.CMaps.Zoom = 12;
                 }
         }
@@ -623,19 +627,7 @@ namespace Maps
             }
         }
 
-        private void buttonItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonItem3_Click(object sender, EventArgs e)
-        {
-            string valor = dgvInfoGeneral[1, 1].Value.ToString().ToUpper().Split('-')[0];
-       //     wbEarth.Document.InvokeScript("RemovePMark", new object[] { valor });
-        }
-
        
-
         private void btnTablaCirculos_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
@@ -643,8 +635,6 @@ namespace Maps
             one_form_Produccion_OrigenDatos ventana = new one_form_Produccion_OrigenDatos(99, ds, new NotifyIcon());
             ventana.ShowDialog();
         }
-
-      
 
         private void buttonItem4_Click(object sender, EventArgs e)
         {
@@ -672,11 +662,9 @@ namespace Maps
             { }
         }
 
-        contenedor contendor = new contenedor();
-        double radioAnterior = 0;
+        
         private void btnPseleccionado_Click(object sender, EventArgs e)
         {
-            //if (dgvInfoGeneral[1, 1].Value == null) return;
             RowEdit.Clear();
             bool cerrado;
             ucMaestro aux;
@@ -762,15 +750,7 @@ namespace Maps
                 RowEdit.Add(dataGridViewX1.Rows[e.RowIndex]);
         }
 
-        void eliminaMarcas(string name)
-        {
-            foreach (ObjetoSelecionable onj in dicVecinos[name].FindAll(x => !x.Estado))
-            {
-                string cad = onj.ToString();
-               // wbEarth.Document.InvokeScript("EliminaMarcaCirculo", new object[] { cad });
-            }
-        }
-
+        
         void agregaMarcas(List<ObjetoSelecionable> listaAgregar)
         {
             foreach (ObjetoSelecionable selec in listaAgregar)
@@ -944,7 +924,7 @@ namespace Maps
             { }
         }
 
-        List<DataGridViewRow> lisG;
+       
         private void buttonItem5_Click(object sender, EventArgs e)
         {
             //contendor.Size = new Size(310, 185);
@@ -1046,7 +1026,6 @@ namespace Maps
             }
         }
 
-        List<DataGridViewRow> RowEdit1 = new List<DataGridViewRow>();
         private void btnburbujas_Click_1(object sender, EventArgs e)
         {
             if (dicPrincipal.Count > 0)
@@ -1058,12 +1037,6 @@ namespace Maps
                 contendor.Size = new Size(1000, 270);
                 contendor.ShowDialog();
             }
-        }
-
-        DataTable dtArea = new DataTable();
-        public void CalularArea(double LAT, double LON, double ALT)
-        {
-            dtArea.Rows.Add(LAT, LON, ALT);
         }
 
         private void buttonItem3_Click_3(object sender, EventArgs e)
@@ -1272,6 +1245,13 @@ namespace Maps
         {
             cMapas.CMaps.ShowCenter = true;
             cMapas.Buscar(textBox1.Text);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+           string Nombre = cMapas.ListaCirculo[0].ID;
+           cMapas.Circulo(Convert.ToDouble ( textBox1.Text), Nombre);
+
         }
     }
 }

@@ -38,8 +38,9 @@ namespace Maps
                 MarcaGlobal = new GMap.NET.WindowsForms.GMapOverlay("Global");
                 CMaps.Overlays.Add(MarcaGlobal);
             }
+            ListaCirculo = new List<MCirculo>();
         }
-
+        public List<MCirculo> ListaCirculo;
         public void Carga()
         {
             CMaps.DragButton = MouseButtons.Left;
@@ -99,13 +100,13 @@ namespace Maps
 
         }
 
-        public void Poligonos(List<PointLatLng> Puntos)
+        public void Poligonos(List<PointLatLng> Puntos,string ID)
         {
 
 
-            GMapOverlay polygons = new GMapOverlay("polygons");
+            GMapOverlay polygons = new GMapOverlay("Circulos");
 
-            GMapPolygon polygon = new GMapPolygon(Puntos, "Jardin des Tuileries");
+            GMapPolygon polygon = new GMapPolygon(Puntos, ID);
 
             PosicionActual = Puntos[0];
            
@@ -362,7 +363,44 @@ namespace Maps
             return "Encontrado: " + Numero;
         }
 
-        public void CirculoFormula(PointLatLng PuntoInicial, double d)
+        public void Circulo(PointLatLng PuntoInicial, double d, string ID)
+        {
+            var num = ListaCirculo.Where(x => x.ID == ID);
+
+            MCirculo circuloactual;
+            if (num.Count() > 0)
+            {
+                circuloactual = num.ElementAt(0);
+
+            }
+            else
+            {
+                circuloactual = new MCirculo(PuntoInicial, ID);
+                ListaCirculo.Add( circuloactual);
+
+            }
+            circuloactual.Radio = d;
+            circuloactual.CirculoFormula();
+            Poligonos(circuloactual.ListaPuntos,ID);
+            
+        }
+        public void Circulo(double d, string ID)
+        {
+            var num = ListaCirculo.Where(x => x.ID == ID);
+
+            MCirculo circuloactual;
+            if (num.Count() > 0)
+            {
+                circuloactual = num.ElementAt(0);
+
+
+                circuloactual.Radio = d;
+                circuloactual.CirculoFormula();
+                Poligonos(circuloactual.ListaPuntos, ID);
+            }
+
+        }
+        private void CirculoFormula(PointLatLng PuntoInicial, double d)
         {
             double LatI =Radianes( PuntoInicial.Lat);
             double LonI =Radianes( PuntoInicial.Lng);
@@ -396,7 +434,7 @@ namespace Maps
               //  Puntos(new Tuple<string, double, double>(i + ": ", AGrados(LatF), AGrados(LonF)), true, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow_pushpin);
               
             }
-            Poligonos(LPuntos);
+            Poligonos(LPuntos,"0");
 
             /*
             var fraccion = d / R;
@@ -490,4 +528,79 @@ namespace Maps
               .Sum() / 2);
         }
     }
+
+
+    public class MCirculo
+    {
+       public  string ID { get; set; }
+        public PointLatLng PuntoInicial { get; set; }
+        public double Radio { get; set; }
+
+        double RadioTierra { set; get; }
+
+        public List<PointLatLng> ListaPuntos { get { return LPuntos; } set { LPuntos = value; } }
+
+        List<PointLatLng> LPuntos;
+
+
+
+        public MCirculo(PointLatLng Localizacion,string clave)
+        {
+            ID = clave;
+            PuntoInicial = Localizacion;
+            RadioTierra = 6371;//en Kilometros 6371e3;//metros
+            Radio = 0;
+            LPuntos = new List<PointLatLng>();
+          
+
+        }
+
+        public void CirculoFormula()
+        {
+            double LatI = ARadianes(PuntoInicial.Lat);
+            double LonI = ARadianes(PuntoInicial.Lng);
+
+          
+            double brng = 90;//angulo
+            double radio = Radio / RadioTierra;
+
+            LPuntos.Clear();//Limpiando la lista
+
+            for (int i = 0; i <= 360; i++)
+            {
+                brng = ARadianes(i);
+
+
+
+                var LatF = Math.Asin(Math.Sin(LatI) * Math.Cos(radio) +
+                        Math.Cos(LatI) * Math.Sin(radio) * Math.Cos(brng));
+
+                double uno = Math.Sin(brng) * Math.Sin(radio) * Math.Cos(LatI);
+                double dos = Math.Cos(radio) - Math.Sin(LatI) * Math.Sin(LatF);
+                double LonF = LonI +  Math.Atan2(uno, dos);
+
+
+                LPuntos.Add(new PointLatLng(AGrados(LatF), AGrados(LonF)));
+               
+
+            }
+          //  Poligonos(LPuntos);
+
+          
+        }
+
+
+        double ARadianes(double grados)
+        {
+        
+            return (grados * (Math.PI / 180));
+        }
+        double AGrados(double Radianes)
+        {
+           
+            return (Radianes / (Math.PI / 180));
+
+        }
+    }
+
 }
