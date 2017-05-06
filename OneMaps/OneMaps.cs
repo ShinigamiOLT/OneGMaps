@@ -375,13 +375,13 @@ namespace Maps
             }
             else
             {
-                circuloactual = new MCirculo(PuntoInicial, ID);
+                circuloactual = new MCirculo(PuntoInicial, ID,CMaps);
                 ListaCirculo.Add( circuloactual);
 
             }
             circuloactual.Radio = d;
             circuloactual.CirculoFormula();
-            Poligonos(circuloactual.ListaPuntos,ID);
+          //  Poligonos(circuloactual.ListaPuntos,ID);
             
         }
         public void Circulo(double d, string ID)
@@ -396,7 +396,7 @@ namespace Maps
 
                 circuloactual.Radio = d;
                 circuloactual.CirculoFormula();
-                Poligonos(circuloactual.ListaPuntos, ID);
+               // Poligonos(circuloactual.ListaPuntos, ID);
             }
 
         }
@@ -540,12 +540,15 @@ namespace Maps
 
         public List<PointLatLng> ListaPuntos { get { return LPuntos; } set { LPuntos = value; } }
 
+        public GMap.NET.WindowsForms.GMapControl CMaps { set; get; }
+
         List<PointLatLng> LPuntos;
 
 
 
-        public MCirculo(PointLatLng Localizacion,string clave)
+        public MCirculo(PointLatLng Localizacion,string clave, GMapControl  GMapControl_)
         {
+            CMaps = GMapControl_;
             ID = clave;
             PuntoInicial = Localizacion;
             RadioTierra = 6371;//en Kilometros 6371e3;//metros
@@ -584,9 +587,51 @@ namespace Maps
                
 
             }
-          //  Poligonos(LPuntos);
+            //  Poligonos(LPuntos);
+            Poligonos();
 
           
+        }
+
+        public void Poligonos()
+        {
+
+
+
+           var lista = CMaps.Overlays.Where(x => x.Id == "Circulos");
+            GMapOverlay polygons = new GMapOverlay("Circulos");
+            if (lista.Count() > 0)
+            {
+                polygons = lista.ElementAt(0);
+            }
+
+            // GMapOverlay polygons = new GMapOverlay("Circulos");
+
+
+            var buscapoligono = polygons.Polygons.Where(x => x.Name == ID);
+
+            GMapPolygon polygon = new GMapPolygon(ListaPuntos, ID);
+            if (buscapoligono.Count() > 0)
+            {
+             polygons.Polygons.Remove(   buscapoligono.ElementAt(0));
+
+            } 
+
+          
+
+            
+
+
+            polygons.Polygons.Add(polygon);
+
+
+
+            CMaps.Overlays.Add(polygons);
+
+            polygon.Fill = new SolidBrush(Color.FromArgb(10, Color.Green));
+            polygon.Stroke = new Pen(Color.Red, 1);
+
+
         }
 
 
